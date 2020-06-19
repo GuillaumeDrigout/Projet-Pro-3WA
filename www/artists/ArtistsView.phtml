@@ -1,0 +1,37 @@
+<!-- Affichage du template lié à la vue -->
+<h2 class="artist-title"><i class="fa fa-music"></i>Liste des artistes du catalogue</h2>
+
+<aside id="artists-list-just-name">
+	<?php
+	//On boucle sur le tableau artists pour afficher le nom de chaque artiste les un après les autres
+	foreach($artists as $artist) :
+	?>
+		<a class="each-artist-just-name" href="<?= $requestUrl ?>/artistsDetail?Id=<?= intval($artist['Id']) ?>">
+			<?= htmlspecialchars($artist['Name']); ?>
+		</a>
+	<?php
+	endforeach;
+	?>
+</aside>
+
+<section id="artists-list">
+	<?php
+	//On boucle sur le tableau artists pour afficher les informations de chaque artiste les un après les autres
+	foreach($artists as $artist) :
+	?>
+    	<a href="<?= $requestUrl ?>/artistsDetail?Id=<?= intval($artist['Id']) ?>">
+    	    <article class="each-artist">
+        		<h3><?= htmlspecialchars($artist['Name']); ?></h3>
+        		<img src="<?= $wwwUrl ?>/images/artists/<?= htmlspecialchars($artist['Photo']); ?>"></img>
+        		<!-- On affiche que les 100 premiers caractères de la bio étant donnée que
+        		nous sommes dans la page qui liste tous les artistes et qu'on ne fait qu'une prévisualisation du contenu-->
+        		<p><?= substr(htmlspecialchars($artist['Bio']), 0, 100) ?>&nbsp;[...]</p>
+    		</article>
+    	</a>
+	<?php
+	endforeach;
+	?>
+</section>
+
+<!-- Chargement du script de la page -->
+<script src="<?= $wwwUrl ?>/js/artists.js"></script>
