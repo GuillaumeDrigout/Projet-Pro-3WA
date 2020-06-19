@@ -1,0 +1,237 @@
+.generic-form {
+    /* structure */
+    margin: 2em 3em;
+    padding: 0.5em 1em;
+
+    /* style */
+    background-color: rgba(237, 234, 234, 0.5);
+    border: 2px solid black;
+    border-radius: 10px;
+    color: black;
+    
+}
+
+.generic-form input[type="password"],
+.generic-form input[type="text"],
+.generic-form input[type="number"],
+.generic-form select,
+.generic-form textarea
+{
+    /* structure */
+    padding: 2px;
+
+    /* style */
+    border: 1px solid grey;
+    border-radius: 5px;
+    transition: background-color 0.33s;
+}
+
+.generic-form input[type="password"],
+.generic-form input[type="text"],
+.generic-form input[type="number"],
+.generic-form textarea
+{
+    /* structure */
+    width: 20em;
+}
+
+.generic-form input[type="password"]:focus,
+.generic-form input[type="text"]:focus,
+.generic-form input[type="number"]:focus,
+.generic-form select:focus,
+.generic-form textarea:focus
+{
+    /* style */
+    background-color: #cecece;
+}
+.generic-form input[type="checkbox"] {
+    /* Double-sized Checkboxes */
+    -ms-transform: scale(2); /* IE */
+    -moz-transform: scale(2); /* FF */
+    -webkit-transform: scale(2); /* Safari and Chrome */
+    -o-transform: scale(2); /* Opera */
+    transform: scale(2);
+    padding: 10px;
+}
+.generic-form > ul:last-child
+{
+    /* structure */
+    margin-top: 2em;
+}
+.generic-form ul {
+    /* structure */
+    margin: 0 auto;
+}
+.generic-form ul li
+{
+    /* structure */
+    margin: 1em 0;
+    
+    /* style */
+    list-style-type: none;
+}
+.generic-form ul li label
+{
+    /* structure */
+    display: inline-block;
+}
+.generic-form ul li label.textarea
+{
+    /* structure */
+    vertical-align: top;
+}
+.generic-form ul li label:not(.no-width)
+{
+    /* structure */
+    width: 250px;
+}
+
+@media screen and (max-width: 1025px) {
+    
+    .generic-form ul li {
+        /* structure */
+        width: 100%;
+    }
+    
+    .generic-form ul {
+        /* structure */
+        padding: 0;
+    }
+    
+    .generic-form ul li label {
+        /* structure */
+        width: 20rem;
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+        
+        /* style */
+        font-size: 4rem;
+    }
+    
+    .generic-form input[type="password"],
+    .generic-form input[type="text"],
+    .generic-form textarea
+    {
+        /* structure */
+        width: 90%;
+        margin: 20px auto;
+        display: block;
+        height: 5rem;
+    }
+    
+    .generic-form textarea {
+        /* structure */
+        height: 40rem;
+    }
+    
+    .generic-form input[type="password"],
+    .generic-form input[type="text"],
+    .generic-form textarea
+    {
+        /* style */
+        font-size: 3rem;
+    }
+    
+    .generic-form #birthDay {
+        /* structure */
+        width: 30%;
+        
+        /* style */
+        font-size: 3rem;
+    }
+    
+    .generic-form #birthMonth {
+        /* structure */
+        width: 30%;
+        
+        /* style */
+        font-size: 3rem;
+    }
+    
+    .generic-form #birthYear {
+        /* structure */
+        width: 30%;
+        
+        /* style */
+        font-size: 3rem;
+    }
+    
+    .generic-form ul li label:not(.no-width)
+    {
+        /* structure */
+        width: 100%;
+    }
+    
+    #birthDate {
+        /* structure */
+        margin: 20px;
+    }
+    
+    .error-message h3 {
+        /* style */
+        font-size: 5rem;
+    }
+    
+    .error-message p {
+        /* style */
+        font-size: 4rem;
+    }
+    
+    .generic-form #artist {
+        /* structure */
+        width: 90%;
+        height: 5rem;
+        margin: 20px 40px;
+        
+        /* style */
+        font-size: 3rem;
+    }
+    
+    .generic-form #record {
+        /* structure */
+        width: 90%;
+        height: 5rem;
+        margin: 20px 40px;
+        
+        /* style */
+        font-size: 3rem;
+    }
+    
+    .generic-form #genre {
+        /* structure */
+        width: 90%;
+        height: 5rem;
+        margin: 20px 40px;
+        
+        /* style */
+        font-size: 3rem;
+    }
+    
+    .generic-form input[type="file"]
+    {
+        /* structure */
+        height: 5rem;
+    }
+    
+    .generic-form #photo {
+        /* structure */
+        width: 90%;
+        height: 5rem;
+        margin: 20px 40px;
+        
+        /* style */
+        font-size: 3rem;
+    }
+    
+    .generic-form #photo-warning {
+        /* style */
+        font-size: 3rem;
+        text-align: center;
+    }
+    
+    .generic-form fieldset legend {
+        /* style */
+        font-size: 3rem;
+    }
+}

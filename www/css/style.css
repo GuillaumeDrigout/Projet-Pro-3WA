@@ -1,0 +1,1559 @@
+/* Animations */
+/* Mise en place d'animations */
+
+/* FONT FACE */
+/* Appelle les polices de la page */
+
+/*GLOBAL */
+/* Balises et class appelés à plusieurs endroits dans la page */
+html {
+    /* Structure */
+    box-sizing: border-box;
+}
+
+body {
+    /* Style */
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.hide {
+    /* Structure */
+    display: none;
+}
+
+.success
+{
+    /* Style */
+    background-color : green;
+    text-align: center;
+    
+    /* Structure */
+    border-radius: 10px;
+    padding: 5px;
+    margin: 40px;
+}
+
+.danger
+{
+    /* Style */
+    background-color : red;
+    text-align: center;
+    
+    /* Structure */
+    border-radius: 10px;
+    padding: 5px;
+    margin: 40px;
+}
+
+/* HEADER */
+/* Ce qui concerne le header et la nav */
+
+header {
+    /* Structure */
+    display: flex;
+    justify-content: space-between;
+    height: 20%;
+    border-bottom: solid 10px black;
+}
+
+#login-section {
+    /* Structure */
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    
+    /* Style */
+    background-color: black;
+}
+
+#login-section .welcome {
+    /* Style */
+    color: white;
+    
+    /* Structure */
+    margin: 15px;
+}
+
+#login-section .welcome a {
+    /* Style */
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 1.5rem;
+    
+    /* Structure */
+    padding: 0;
+}
+
+#login-section .welcome a:hover {
+    /* Style */
+    background-color: black;
+    color: white;
+}
+
+#site_search {
+    /* Structure */
+    position: absolute;
+    width: 400px;
+    height: 40px;
+    left: 40px;
+    top: -7px;
+}
+
+#site_search .fa {
+    /* Structure */
+    display: inline-block;
+}
+
+#site_search #search_q {
+    /* Structure */
+    position: relative;
+    padding: 3px 7px 2px;
+    width: 250px;
+    height: 25px;
+    line-height: 25px;
+    border-radius: 4px;
+    
+    /* Style */
+    font-size: 14px;
+    font-family: 'Risque', cursive;
+}
+
+#site_search #do_site_search {
+    /* Structure */
+    padding: 1px 7px 2px;
+    width: 16px;
+    height: 20px;
+    text-align: center;
+    box-sizing: content-box;
+    line-height: 20px;
+    cursor: pointer;
+    
+    /* Style */
+    font-size: 18px;
+    color: white;
+    background-color: black;
+    border-color: black;
+    
+}
+
+#login-section a {
+    /* Style */
+    color: white;
+    font-size: 2rem;
+    
+    /* Structure */
+    padding: 1rem 3rem;
+    font-family: 'Risque', cursive;
+    
+}
+
+#login-section a:hover {
+    /* Transition pour les différents navigateurs */
+    transition: all 0.5s ease-in-out 0s;
+    -moz-transition: all 0.5s ease-in-out 0s;
+    -webkit-transition: all 0.5s ease-in-out 0s;
+    -o-transition: all 0.5s ease-in-out 0s;
+    
+    /* Style */
+    color: black;
+    background-color: white;
+}
+
+header nav {
+    /* Structure */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+
+header nav a {
+    /* Styles */
+    font-family: 'Risque', cursive;
+    font-size: 2rem;
+    color: black;
+    
+    /* Structure */
+    margin-right: 40px;
+    padding: 10px 40px;
+    border-radius: 30px;
+}
+
+header nav a:hover {
+    /* Transition pour les différents navigateurs */
+    transition: all 1s ease-in-out 0s;
+    -moz-transition: all 1s ease-in-out 0s;
+    -webkit-transition: all 1s ease-in-out 0s;
+    -o-transition: all 1s ease-in-out 0s;
+    
+    /* Effets au survol de la souris */
+    background-color: black;
+    color: white;
+    width: 250px;
+    text-align: center;
+}
+
+header img {
+    /* Structure */
+    margin: 30px 0 0 40px;
+    width: 60%;
+}
+
+/* MAIN */
+/* Ce qui concerne le corps du site */
+
+main {
+    /* Style */
+    background-color: white;
+    
+    /* Structure */
+    text-align: left;
+    margin: 0 auto;
+}
+
+#main-about {
+    /* Structure */
+    margin: 80px;
+}
+
+#main-about article {
+    /* Structure */
+    display: inline-block;
+    width: 40%;
+    padding-left: 60px;
+    text-align: justify;
+    text-justify: inter-word;
+    
+    /* Style */
+    font-size: 2rem;
+}
+
+#album-covers-1 {
+    /* Structure */
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+}
+
+#album-covers-1 a {
+    /* Style */
+    color: black;
+    
+    /* curseur de souris au survol */
+    cursor: help;
+}
+
+#album-covers-1 img {
+    /* Structure */
+    width: 30%;
+    margin: 0 50px 50px 50px;
+}
+
+#album-covers-1 img:hover {
+    /* Structure */
+    border-radius: 30%;
+    
+    /* curseur de souris au survol */
+    cursor: help;
+}
+
+.album-covers {
+    /* Structure */
+    display: flex;
+}
+
+.album-covers p {
+    /* Structure */
+    margin-top: 100px;
+    
+    /* Style */
+    font-style: italic;
+}
+
+/* SLIDER */
+
+#slider-section {
+    /* Style */
+    background-color: rgba(214, 214, 214, 0.8);
+    
+    /* Structure */
+    width: 90%;
+    padding: 40px;
+    margin: 40px auto;
+    border-radius: 20px;
+}
+
+#slider-section h1 {
+    /* Structure */
+    text-align: center;
+    
+    /* Style */
+    font-family: 'Risque', cursive;
+}
+
+#slider-section h1 img {
+    /* Structure */
+    width: 30px;
+    margin: 0 10px;
+}
+
+.hide
+{
+    /* Structure */
+    display: none;
+}
+
+.toolbar ul
+{
+    /* Structure */
+    padding-left: 0;
+
+    /* Style */
+    list-style-type: none;
+    text-align: center;
+}
+
+.toolbar ul li
+{
+    /* Structure */
+    display: inline-block;
+}
+
+.toolbar ul li + li
+{
+    /* Structure */
+    margin-left: 1em;
+}
+
+.slider
+{
+    /* Structure */
+    -webkit-backface-visibility: hidden; /* obligatoire pour éviter l'effet de crénelage sous Chrome */
+    text-align: center;
+}
+
+.slider img
+{
+    /* Structure */
+    padding: 1em;
+    border-radius: 6px;
+    box-shadow: 0 0 8px black;
+    width: 500px;
+    
+    /* Style */
+    background-color: black;
+}
+
+.slider figcaption
+{
+    color: #529cc7;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 0 0 4px grey;
+}
+
+/* Liste de puces */
+#dots {
+    /* Structure */
+    position: relative;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    
+    /* Style */
+    list-style-type: none;
+}
+
+
+.dot {
+    /* Structure */
+    display: inline-block;
+}
+
+.dot a {
+    /* Structure */
+    display: block;
+    width: 14px;
+    height: 14px;
+    border-radius: 7px;
+    
+    /* Style */
+    background-color: black;
+}
+
+.dot.selected a {
+    /* Style */
+    background-color: limegreen;
+}
+
+.dot + .dot {
+    /* Structure */
+    margin-left: 5px;
+}
+
+#playlist {
+    /* Structure */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#playlist .playlist-title {
+    /* Structure */
+    margin-top: 60px;
+}
+
+/* FOOTER */
+/* Ce qui concerne le footer */
+footer {
+    
+    /* Structure */
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    
+    /* Style */
+    background-color: black;
+}
+
+footer a {
+    /* Structure */
+    padding: 2rem;
+    width: 15%;
+    text-align: center;
+    
+    /* Style */
+    color: white;
+    font-family: 'Risque', cursive;
+    font-size: 1.5rem;
+    
+    
+}
+
+footer a:hover {
+    /* Animation transition */
+    transition: all 0.5s ease-in-out 0s;
+    -moz-transition: all 0.5s ease-in-out 0s;
+    -webkit-transition: all 0.5s ease-in-out 0s;
+    -o-transition: all 0.5s ease-in-out 0s;
+    
+    /* Style */
+    color: black;
+    background-color: white;
+}
+
+.notice
+{
+    /* structure */
+    margin: 2em auto;
+    width: 50%;
+    border-radius: 10px;
+    text-align: center;
+
+    /* Style */
+    background-color: rgba(237, 234, 234, 0.5);
+    border: 2px solid black;
+    color: black;
+    font-size: 1.2em;
+}
+
+@media screen and (max-width: 1025px) {
+    
+    /* GLOBAL */
+    
+    h2 {
+        /* Style */
+        font-size: 6rem;
+    }
+    
+    /* BARRE DE RECHERCHE ET SECTION LOGIN */
+    
+    #login-section {
+        /* Structure */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #site_search {
+        /* Structure */
+        position: static;
+        margin: 20px 50px 50px 140px;
+    }
+    
+    #site_search #search_q {
+        width: 60%;
+        /* Structure */
+        position: static;
+        padding: 10px;
+        width: 320px;
+        height: 50px;
+        line-height: 50px;
+        border-radius: 4px;
+        
+        /* Style */
+        font-size: 2rem;
+        font-family: 'Risque', cursive;
+    }
+    
+    #login-section a {
+        /* Structure */
+        width: 100%;
+        text-align: center;
+        
+        /* Style */
+        font-size: 4rem;
+    }
+    
+    #login-section .welcome {
+        /* Style */
+        font-size: 4rem;
+    }
+    
+    #login-section .welcome strong a {
+        /* Style */
+        font-size: 4rem;
+    }
+    
+    /* HEADER */
+    
+    header {
+        /* Structure */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    
+    header img {
+        /* Structure */
+        width: 50%;
+        margin-left: 150px;
+    }
+    
+    header .guigs-logo {
+        /* Structure */
+        width: 100%;
+    }
+    
+    header nav {
+        /* Structure */
+        align-items: center;
+        width: 100%;
+    }
+    
+    header nav a {
+        /* style */
+        font-size: 5rem;
+        
+        /* Structure */
+        width: 100%;
+        margin: 0;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    header nav a:hover {
+        /* Structure */
+        width: 100%;
+    }
+    
+    /* MAIN */
+    
+    #main-about article {
+        /* Structure */
+        display: block;
+        width: 100%;
+        padding: 20px;
+        font-size: 4rem;
+    }
+    
+    #album-covers-1 {
+    /* Structure */
+    display: block;
+    vertical-align: top;
+    width: 100%;
+    }
+    
+    #album-covers-1 img {
+        /* Structure */
+        width: 100%;
+    }
+    
+    #album-covers p {
+        /* style */
+        font-size: 4rem;
+    }
+    
+    .album-covers {
+        /* Structure */
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .album-covers p {
+        /* Structure */
+        text-align: center;
+    }
+    
+    /* SLIDER SECTION */
+    
+    #slider-section h1 {
+        /* Style */
+        font-size: 6rem;
+    }
+    
+    #slider-section h1 img {
+        /* Structure */
+        width: 45px;
+    }
+    
+    .slider img {
+        /* Structure */
+        width: 750px;
+    }
+    
+    .slider figcaption {
+        /* Style */
+        font-size: 4rem;
+    }
+    
+    .dot a {
+        /* Structure */
+        width: 30px;
+        height: 30px;
+        border-radius: 15px;
+    }
+    
+    #playlist iframe {
+        /* Structure */
+        width: 750px;
+        height: 800px;
+    }
+    
+    /* FOOTER */
+    
+    footer {
+        /* Structure */
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    footer a {
+        /* Style */
+        font-size: 4rem;
+        
+        /* Structure */
+        width: 100%;
+    }
+    
+}
+
+/* Page UserView */
+
+h2 {
+    /* Structure */
+    margin: 40px;
+    
+    /* Style */
+    font-family: 'Risque', cursive;
+}
+
+/* Page Admin */
+
+.admin-title {
+    /* Structure */
+    text-align: center;
+    margin: 40px auto;
+    
+    /* Style */
+    text-decoration: underline;
+    font-size: 3rem;
+}
+
+.admin-title .fa {
+    /* Structure */
+    margin: 0 10px;
+}
+
+#admin-links {
+    /* Structure */
+    display: flex;
+    
+}
+
+#admin-links .admin-link {
+    /* Structure */
+    margin: 20px;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 30px;
+    
+    /* Style */
+    background-image: Url('../images/MusicBG.jpg');
+}
+
+#admin-links:hover .admin-link {
+    /* Style */
+    opacity: 0.33;
+}
+
+#admin-links:hover .admin-link:hover {
+    /* Structure */
+    opacity: 1;
+}
+
+#admin-links .admin-link a h3 {
+    /* Structure */
+    margin: 10px 0;
+    padding: 5px;
+    text-align: center;
+    
+    /* Style */
+    color: white;
+    text-decoration: underline;
+}
+
+#admin-links .admin-link a img {
+    /* Structure */
+    width: 500px;
+}
+
+.addOrDelete-tracks {
+    /* Structure */
+    justify-content: center;
+}
+
+.gestion-admins {
+    /* Structure */
+    justify-content: center;
+}
+
+@media screen and (max-width: 1025px) {
+    
+    #admin-links {
+        /* Structure */
+        flex-direction: column;
+    }
+    
+    .admin-title {
+        /* Style */
+        font-size: 5rem;
+    }
+    
+    #admin-links .admin-link a h3 {
+        /* Style */
+        font-size: 4rem;
+    }
+    
+    #admin-links .admin-link a img {
+        /* Structure */
+        width: 90%;
+        margin-left: 5%;
+    }
+}
+
+/* Page Artists */
+
+.artist-title {
+    /* Style */
+    text-decoration: underline;
+    font-size: 2.5rem;
+}
+
+.artist-title .fa {
+    /* Structure */
+    margin: 0 10px;
+}
+
+#artists-list {
+    /* Structure */
+    width: 90%;
+    margin: 20px;
+}
+
+#artists-list a h3 {
+    /* Structure */
+    margin: 20px auto;
+    
+    /* Style */
+    color: black;
+    text-decoration: underline;
+}
+
+#artists-list a p {
+    /* Style */
+    color: black;
+}
+
+#artists-list a img {
+    /* Structure */
+    width: 40%;
+    
+    /* Style */
+    border-radius: 20px;
+}
+
+.each-artist {
+    /* Style */
+    background-color: rgba(214, 214, 214, 0.8);
+    
+    /* Structure */
+    width: 50%;
+    padding: 40px;
+    margin: 40px;
+    border-radius: 20px;
+}
+
+#artists-list-just-name {
+    /* Structure */
+    float: right;
+    width: 30%;
+    border-radius: 20px;
+    margin: 0 200px 0 0;
+    padding: 40px;
+    
+    /* Style */
+    background-color: rgba(214, 214, 214, 0.8);
+    text-align: center;
+}
+
+.fixer-artists-list-just-name {
+    /* Structure */
+    z-index: 9999;
+    position: fixed;
+    top: 50px;
+    right: 0;
+    
+}
+
+#artists-list-just-name .each-artist-just-name {
+    /* Structure */
+    display: block;
+    
+    /* Style */
+    color: black;
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 1025px) {
+    
+    .artist-title {
+        /* Style */
+        font-size: 6rem;
+        text-align: center;
+    }
+    
+    #artists-list-just-name {
+        /* Structure */
+        float: inherit;
+        width: 90%;
+        margin: 0 auto;
+    }
+    
+    #artists-list-just-name .each-artist-just-name {
+        /* Style */
+        font-size: 5rem;
+    }
+    
+    .fixer-artists-list-just-name {
+        /* Structure */
+        position: static;
+    }
+    
+    #artists-list {
+        /* Structure */
+        width: 90%;
+    }
+    
+    #artists-list .each-artist {
+        /* Structure */
+        width: 100%;
+        margin: 40px 30px;
+    }
+    
+    #artists-list a h3 {
+        /* Style */
+        font-size: 5rem;
+        
+        /* Structure */
+        text-align: center;
+    }
+    
+    #artists-list a img {
+        /* Structure */
+        width: 100%;
+    }
+    
+    #artists-list a p {
+        /* Style */
+        font-size: 4rem;
+    }
+    
+}
+
+/* Page Albums */
+
+.album-title {
+    /* Style */
+    text-decoration: underline;
+    font-size: 2.5rem;
+}
+
+.album-title .fa {
+    /* Structure */
+    margin: 0 10px;
+}
+
+#albums-list {
+    /* Structure */
+    width: 90%;
+    margin: 20px;
+}
+
+#albums-list a h3 {
+    /* Structure */
+    margin: 20px auto;
+    
+    /* Style */
+    color: black;
+    text-decoration: underline;
+}
+
+#albums-list a p {
+    /* Style */
+    color: black;
+}
+
+#albums-list a img {
+    /* Structure */
+    width: 40%;
+    
+    /* Style */
+    border-radius: 20px;
+}
+
+.each-album {
+    /* Structure */
+    background-color: rgba(214, 214, 214, 0.8);
+    width: 50%;
+    padding: 40px;
+    margin: 40px;
+    border-radius: 20px;
+}
+
+#albums-list-just-name {
+    /* Structure */
+    float: right;
+    width: 30%;
+    background-color: rgba(214, 214, 214, 0.8);
+    border-radius: 20px;
+    margin: 0 200px 0 0;
+    padding: 40px;
+    
+    /* Style */
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.fixer-albums-list-just-name {
+    /* Structure */
+    z-index: 9999;
+    position: fixed;
+    top: 50px;
+    right: 0;
+}
+
+.fixer-albums-list-just-name-from-bottom {
+    /* Structure */
+    z-index: 9999;
+    position: fixed;
+    Bottom: 130px;
+    right: 0;
+}
+
+#albums-list-just-name .each-album-just-name {
+    /* Structure */
+    display: block;
+    
+    /* Style */
+    color: black;
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 1025px) {
+    
+    .album-title {
+        /* Style */
+        font-size: 6rem;
+        text-align: center;
+    }
+    
+    #albums-list-just-name {
+        /* Structure */
+        float: inherit;
+        width: 90%;
+        margin: 0 auto;
+    }
+    
+    #albums-list-just-name .each-album-just-name {
+        /* Style */
+        font-size: 5rem;
+    }
+    
+    .fixer-albums-list-just-name {
+        /* Structure */
+        position: static;
+    }
+    
+    #albums-list {
+        /* Structure */
+        width: 90%;
+    }
+    
+    #albums-list .each-album {
+        /* Structure */
+        width: 100%;
+        margin: 40px 30px;
+    }
+    
+    #albums-list a h3 {
+        /* Style */
+        font-size: 5rem;
+        
+        /* Structure */
+        text-align: center;
+    }
+    
+    #albums-list a img {
+        /* Structure */
+        width: 100%;
+    }
+    
+    #albums-list a p {
+         /* Style */
+        font-size: 4rem;
+    }
+    
+}
+
+/* Page Album détail */
+
+#spotify-preview {
+    /* Structure */
+    float: right;
+    margin-right: 7%;
+    border-radius: 20px;
+    padding: 40px;
+    
+    /* Style */
+    background-color: rgba(214, 214, 214, 0.8);
+}
+
+#album-detail {
+    /* Structure */
+    width: 60%;
+    padding: 40px;
+    margin: 40px;
+    border-radius: 20px;
+    
+    /* Style */
+    background-color: rgba(214, 214, 214, 0.8);
+}
+
+#first-details {
+    /* Structure */
+    float: right;
+    margin-right: 30%;
+}
+
+#album-detail img {
+    /* Structure */
+    width: 30%;
+}
+
+#album-detail h3 {
+    /* Structure */
+    margin-top: 40px;
+    
+    /* Style */
+    font-size: 1.8rem;
+    text-decoration: underline;
+}
+
+#already-in-my-wantlist {
+    /* Structure */
+    padding: 5px;
+    border: solid 0.5px #226b35;
+    border-radius: 10px;
+    
+    /* Style */
+    background-color: #47cc6a;
+    -webkit-box-shadow: -2px -1px 5px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px -1px 5px 1px rgba(0,0,0,0.75);
+    box-shadow: -2px -1px 5px 1px rgba(0,0,0,0.75);
+}
+
+#already-in-my-wantlist i {
+    /* Structure */
+    margin: 0 5px;
+}
+
+.album-description {
+    /* Structure */
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+@media screen and (max-width: 1025px) {
+    
+    #spotify-preview {
+        /* Structure */
+        float: inherit;
+        display: flex;
+        justify-content: center;
+        width: 90%;
+        margin: 40px;
+    }
+    
+    #spotify-preview iframe {
+        /* Structure */
+        width: 90%;
+    }
+    
+    #album-detail {
+        /* Structure */
+        width: 90%;
+    }
+    
+    #album-detail img {
+        /* Structure */
+        width: 100%;
+    }
+    
+    #album-detail h3 {
+        /* Style */
+        font-size: 6rem;
+    }
+    
+    #album-detail p {
+        /* Style */
+        font-size: 4rem;
+    }
+    
+    #first-details {
+        /* Structure */
+        float: inherit;
+    }
+    
+    #return-button {
+        font-size: 5rem;
+    }
+    
+    #already-in-my-wantlist {
+        /* Structure */
+        width: 100%;
+        display: block;
+        text-align: center;
+        
+        /* Style */
+        font-size: 4rem;
+    }
+    
+    .button-wantlist {
+        /* Structure */
+        display: block;
+        width: 100%;
+        height: 80px;
+        
+        /* Style */
+        font-size: 4rem;
+    }
+    
+}
+
+/* PAGE ARTIST DETAIL */
+
+#artist-detail {
+    /* Structure */
+    width: 80%;
+    padding: 40px;
+    margin: 40px;
+    border-radius: 20px;
+    
+    /* Style */
+    background-color: rgba(214, 214, 214, 0.8);
+}
+
+#artist-detail img {
+    /* Structure */
+    width: 40%;
+}
+
+#artist-detail h3 {
+    /* Style */
+    text-decoration: underline;
+    font-size: 1.8rem;
+    
+    /* Structure */
+    margin-top: 40px;
+}
+
+#artist-records-list {
+    /* Structure */
+    float: right;
+    margin: 30px;
+}
+
+#artist-records-list a {
+    /* Structure */
+    margin: 50% auto;
+}
+
+#artist-records-list img {
+    /* Structure */
+    width: 200px;
+    border-radius: 15px;
+}
+
+#artist-records-list p {
+    /* style */
+    color: black;
+    text-decoration: underline;
+    
+    /* Structure */
+    text-align: center;
+}
+
+.artist-bio {
+    /* Structure */
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.clear {
+    /* Structure */
+    clear: both;
+}
+
+#return-button {
+    /* Style */
+    background-color: rgba(214, 214, 214, 0.8);
+    color: black;
+    text-decoration: underline;
+    
+    /* Structure */
+    width: 100%;
+    padding: 20px;
+    margin: 40px;
+    border-radius: 20px;
+    font-weight: bolder;
+}
+
+#return-button .fa {
+    /* Structure */
+    margin: 10px;
+}
+
+@media screen and (max-width: 1025px) {
+    
+    #artist-detail {
+        /* Structure */
+        width: 90%;
+    }
+    
+    #artist-detail img {
+        /* Structure */
+        width: 100%;
+    }
+    
+    #artist-detail h3 {
+        /* Style */
+        font-size: 6rem;
+    }
+    
+    #artist-detail p {
+        /* Style */
+        font-size: 5rem;
+    }
+    
+    #artist-records-list {
+        /* Structure */
+        float: inherit;
+        margin: 40px;
+    }
+    
+    #artist-records-list img {
+        /* Structure */
+        width: 50%;
+        margin: 0 24% 40px;
+    }
+    
+}
+
+/* PAGE SEARCH */
+
+#search-result {
+    /* Style */
+    background-color: rgba(214, 214, 214, 0.8);
+    
+    /* Structure */
+    width: 50%;
+    padding: 40px;
+    margin: 40px;
+    border-radius: 20px;
+}
+
+#search-result h3 {
+    /* Style */
+    color: black;
+}
+
+#search-result h3:hover {
+    /* Style */
+    opacity: 0.5;
+}
+
+#search-result p {
+    /* Style */
+    color: black;
+}
+
+#search-result img {
+    /* Structure */
+    width: 25%;
+    border-radius: 20px;
+}
+
+#search-result img:hover {
+    /* Style */
+    opacity: 0.5;
+}
+
+
+@media screen and (max-width: 1025px) {
+    
+    #search-result {
+        /* Structure */
+        width: 90%;
+    }
+    
+    #search-result h3 {
+        /* Structure */
+        text-align: center;
+    }
+    
+    #search-result p {
+        /* Style */
+        font-size: 5rem;
+        
+        /* Structure */
+        text-align: center;
+    }
+    
+    #search-result img {
+        /* Structure */
+        width: 70%;
+        display: block;
+        margin: 0 auto 100px;
+    }
+    
+}
+
+/* PAGE WANTLIST */
+
+#wantlist-title {
+    /* Style */
+    text-decoration: underline;
+}
+
+#wantlist-title .fa {
+    /* Structure */
+    margin: 0 10px;
+}
+
+.each-want {
+    /* Structure */
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 100px 0;
+}
+
+.each-want h3 {
+    /* Structure */
+    max-width: 300px;
+}
+
+.each-want img {
+    /* Structure */
+    width: 300px;
+}
+
+@media screen and (max-width: 1025px) {
+    .each-want {
+        /* Structure */
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .each-want h3 {
+        /* Style */
+        font-size: 5rem;
+        
+        /* Structure */
+        text-align: center;
+        max-width: 700px;
+    }
+    
+    .each-want form {
+        /* Structure */
+        margin-bottom: 50px;
+    }
+    
+    .each-want .button-wantlist {
+        /* Structure */
+        width: 500px;
+        height: 100px;
+        display: block;
+        margin: 0 auto;
+        
+        /* Style */
+        font-size: 3rem;
+    }
+    
+    .each-want img {
+        /* Structure */
+        width: 700px;
+    }
+    
+    .each-want .want-preview iframe {
+        /* Structure */
+        width: 700px;
+        height: 700px;
+    }
+}
+
+/* PAGE CONTACT */
+
+.contact-title {
+    /* Style */
+    text-decoration: underline;
+    font-size: 2.5rem;
+}
+
+.contact-title .fa {
+    /* Structure */
+    margin: 0 10px;
+}
+
+#contact-form {
+    /* Structure */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contact-form label {
+    /* Structure */
+    margin: 20px 0 10px;
+    
+    /* Style */
+    font-size: 1.8rem;
+}
+
+@media screen and (max-width: 1025px) {
+    .contact-title {
+        /* Style */
+        font-size: 6rem;
+    }
+    
+    #contact-form label {
+        /* Style */
+        font-size: 4rem;
+    }
+}
+
+/* PAGE USER DETAIL */
+
+.userDetail-title {
+    /* Style */
+    text-decoration: underline;
+    font-size: 2.5rem;
+}
+
+.userDetail-title .fa {
+    /* Structure */
+    margin: 0 10px;
+}
+
+#user-info ul {
+    /* Style */
+    list-style-type: none;
+}
+
+#user-info ul li {
+    /* Structure */
+    margin-left: 0;
+}
+
+@media screen and (max-width: 1025px) {
+    .userDetail-title {
+        /* Style */
+        font-size: 6rem;
+    }
+    
+    #user-info ul li {
+        /* Style */
+        font-size: 4rem;
+    }
+    
+    #user-info h3 {
+        /* Style */
+        font-size: 4rem;
+    }
+    
+    
+}
+
+/* CHANGE USER DETAIL PAGE */
+
+.change-user-detail-title {
+    /* Style */
+    text-decoration: underline;
+    font-size: 2.5rem;
+}
+
+.change-user-detail-title .fa {
+    /* Structure */
+    margin: 0 10px;
+}
+
+@media screen and (max-width: 1025px) {
+    
+    .change-user-detail-title {
+        /* Style */
+        font-size: 6rem;
+    }
+}
+
+/* CHANGE USER PASSWORD PAGE */
+
+.change-user-password-title {
+    /* Style */
+    text-decoration: underline;
+    font-size: 2.5rem;
+}
+
+.change-user-password-title .fa {
+    /* Structure */
+    margin: 0 10px;
+}
+
+@media screen and (max-width: 1025px) {
+    
+    .change-user-password-title {
+        /* Style */
+        font-size: 6rem;
+    }
+}

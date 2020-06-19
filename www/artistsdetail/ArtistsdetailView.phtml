@@ -1,0 +1,36 @@
+<!-- Affichage du template lié à la vue -->
+<h2 class="artist-title"><i class="fa fa-music"></i><?= htmlspecialchars($artist['Name']); ?></h2>
+
+<section id="artist-detail">
+    
+    <img src="<?= $wwwUrl ?>/images/artists/<?= htmlspecialchars($artist['Photo']); ?>"></img>
+    
+    <?php
+        //On boucle sur les albums de l'artiste pour tous les afficher
+        foreach($artistRecords as $artistRecord):
+    ?>
+    
+        <section id="artist-records-list">
+            <a href="<?= $requestUrl ?>/recordsDetail?Id=<?= intval($artistRecord['Id']) ?>">
+                <p><?= htmlspecialchars($artistRecord['Name']); ?></p>
+                <img src="<?= $wwwUrl ?>/images/albums/<?= htmlspecialchars($artistRecord['Photo']); ?>" alt="">
+            </a>
+        </section>
+    
+    <?php
+    endforeach;
+    ?>
+    
+    <h3>Genre</h3>
+    
+    <p><?= htmlspecialchars($artistGenre['GenreName']); ?></p>
+    
+    <h3>À propos de l'artiste</h3>
+    
+    <p class="artist-bio"><?= htmlspecialchars($artist['Bio']); ?></p>
+    
+</section>
+
+<div class="clear"></div>
+
+<a id="return-button" href="<?= $requestUrl ?>/artists"><i class="fa fa-undo"></i>Retour aux artistes</a>

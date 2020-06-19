@@ -1,0 +1,24 @@
+<!-- Message de notification -->
+<?php if($flashBag->hasMessages() == true): ?>
+    <aside id="notice" class="notice">
+        <?php foreach($flashBag->fetchMessages() as $message): ?>
+            <p><?= $message ?></p>
+        <?php endforeach ?>
+    </aside>
+<?php endif; ?>
+
+<h2 class="contact-title"><i class="fa fa-envelope"></i>Vous avez des questions? Contactez Guigscog!</h2>
+
+<form id="contact-form" class="generic-form" action="<?= $requestUrl ?>/contact" method="POST">
+    
+    <label for="name">Votre Nom</label>
+    <input type="text" name="name"/>
+    
+    <label for="email">Votre adresse mail</label>
+    <input type="text" name="email"/>
+    
+    <label for="message">Votre message</label>
+    <textarea name="message" cols="30" rows="10"></textarea>
+    
+    <input class="button" type="submit" value="Envoyer"/>
+</form>

@@ -1,0 +1,48 @@
+.generic-table {
+    /* Structure */
+    width: 100%;
+}
+
+.generic-table th
+{
+    /* Structure */
+    text-align: left;
+}
+.generic-table td,
+.generic-table th
+{
+    /* structure */
+    padding: 0.5em;
+
+    /* Style */
+    cursor: default;
+}
+.generic-table tfoot tr td
+{
+    /* Style */
+    font-weight: bold;
+    
+    /* Structure */
+    text-align: right;
+}
+.generic-table tfoot tr.small-notice td
+{
+    /* Style */
+    font-size: 0.875em;
+    font-weight: normal;
+    
+    /* Structure */
+    text-align: center;
+}
+.generic-table tr td
+{
+    /* Transition */
+    transition: all 0.25s;
+}
+
+@media screen and (max-width: 1025px) {
+    .generic-table td strong {
+        /* Style */
+        font-size: 4rem;
+    }
+}
