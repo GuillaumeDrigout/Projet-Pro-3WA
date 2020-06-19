@@ -1,0 +1,86 @@
+<!-- Message de notification -->
+<?php if($flashBag->hasMessages() == true): ?>
+    <aside id="notice" class="notice">
+        <?php foreach($flashBag->fetchMessages() as $message): ?>
+            <p><?= $message ?></p>
+        <?php endforeach ?>
+    </aside>
+<?php endif; ?>
+<!-- Code HTML à écrire -->
+
+<!-- Contenu de la page d'accueil -->
+<main>
+	<section id="main-about">
+		<aside id="album-covers-1">
+			<a href="<?= $requestUrl ?>/artistsDetail?Id=1">
+				<section class="album-covers">
+					<img id="img1" src="<?= $wwwUrl ?>/images/Thrust.jpg" alt="Album number one" title="Who dis?">
+					<p id="p1" class="hide">Herbie Hancock - Thrust (1974)</p>
+				</section>
+			</a>
+			<a href="<?= $requestUrl ?>/artistsDetail?Id=15">
+				<section class="album-covers">
+					<img id="img2" src="<?= $wwwUrl ?>/images/doors.jpg" alt="Album number two" title="Who dis?">
+					<p id="p2" class="hide">The Doors - L.A. Woman (1971)</p>
+				</section>
+			</a>
+			<a href="<?= $requestUrl ?>/artistsDetail?Id=16">
+				<section class="album-covers">
+					<img id="img3" src="<?= $wwwUrl ?>/images/hendrix.jpeg" alt="Album number three" title="Who dis?">
+					<p id="p3" class="hide">The Jimi Hendrix Experience - Axis: Bold As Love (1967)</p>
+				</section>
+			</a>
+		</aside>
+		
+		<article class="about-guigscog">
+			Bonjour et bienvenue sur Guigscog. Désireux de partager mes goûts musicaux, je crée pour vous 
+			cette plateforme de référencement des albums qui accompagnent ma vie au quotidien, et qui je l'espère, 
+			accompagneront bientôt la vôtre! Vous trouverez donc ici une liste d'artistes et d'albums, pourrez écouter un extrait 
+			ou être redirigé vers l'album entier sur spotify, et enfin créer votre Wantlist pour savoir quoi écouter en partant chaque jour au travail! 
+			Créez dès maintenant votre compte Guigscog et que l'aventure commence!
+			<br><br>
+			Hello and welcome to Guigscog. Eager to share my musical tastes, I created this platform to 
+			reference albums that accompany my daily life, and which I hope will soon accompany yours! 
+			You will find here a list of artists and albums, with the possibility to listen to an extract or 
+			be redirected to albums or songs on spotify, and last but not least create a Wantlist to know what you'll listen to on your way to work each day! 
+			Create your Guigscog account now and let the adventure begin!
+		</article>
+		
+	</section>
+	
+	
+	
+	<section id="slider-section">
+		
+		<h1><img src="<?= $wwwUrl ?>/images/Vinyl.png"></img>Aperçu de Guigscog<img src="<?= $wwwUrl ?>/images/Vinyl.png"></img></h1>
+		
+		<figure id="slider" class="slider">
+            <img src="<?= $wwwUrl ?>/images/albums/AreYouExperienced.jpg" alt="Photo du slider">
+            <figcaption></figcaption>
+        </figure>
+	
+	
+		<ul id="dots">
+	       
+	    </ul>
+		
+		<section class="toolbar">
+	        <ul>
+	            <li><button class="slider-button" id="slider-previous" title="Image précédente"><i class="fa fa-backward"></i></button></</li>
+	            <li><button class="slider-button" id="slider-toggle" title="Démarrer le Slide-show"><i class="fa fa-play"></i></button></li>
+	            <li><button class="slider-button" id="slider-next" title="Image suivante"><i class="fa fa-forward"></i></button></li>
+	        </ul>
+	    </section>
+	     
+	    <section id="playlist">
+		    <h1 class="playlist-title"><img src="<?= $wwwUrl ?>/images/Vinyl.png"></img>Playlist Guigscog<img src="<?= $wwwUrl ?>/images/Vinyl.png"></img></h1>
+	    	<iframe src="https://open.spotify.com/embed/playlist/0JYb3odiZeNl6M6oFtkd5J" width="500" height="600" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    	</section>
+    	
+     </section>
+	
+</main>
+
+<!-- Chargement du script de la page -->
+<script src="<?= $wwwUrl ?>/js/home.js"></script>
+<script src="<?= $wwwUrl ?>/js/slider.js"></script>
