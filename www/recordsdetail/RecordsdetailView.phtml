@@ -1,0 +1,66 @@
+<!-- Affichage du template lié à la vue -->
+<h2 class="album-title"><i class="fa fa-music"></i><?= htmlspecialchars($records['RecordName'])?> - <?= htmlspecialchars($records['ArtistName'])?></h2>
+
+<aside id="spotify-preview">
+    <iframe src="<?= htmlspecialchars($records['SpotifyLink']); ?>"
+        width="350" height="450" frameborder="0" allowtransparency="true" allowfullscreen allow="encrypted-media">
+    </iframe>
+</aside>
+
+<section id="album-detail">
+    
+    <img src="<?= $wwwUrl ?>/images/albums/<?= htmlspecialchars($records['RecordPhoto']); ?>"></img>
+    
+    <section id="first-details">
+        <p>Sortie : <?= htmlspecialchars($records['Year']); ?></p>
+        <p>Genre : <?= htmlspecialchars($recordGenre['GenreName']); ?></p>
+        
+        <?php
+        //on vérifie si l'utilisateur est connecté à une session
+        $userSession = new UserSession();
+        if($userSession->isAuthenticated() == true)
+        {
+        ?>
+            <?php
+            //on vérifie si l'album est dans la wantlist de l'utilisateur
+            $wantlistUser = new WantlistModel();
+            if(empty($wantlistUser->verifyWantsRecord($userSession->getUserId(), $records['RecordId'])))
+            {
+            ?>
+                <!-- s'il ne figure pas dans la wantlist de l'utilisateur, on affiche le formulaire d'ajout  -->
+                <form action="<?= $requestUrl ?>/wantlist" method="POST">
+                    <input class="hidden" type="text" name="want-list" value="<?= $records['RecordId'] ?>"/>
+                    <input class="button-wantlist" type="submit" value="Ajouter à ma Wantlist"/>
+                </form>
+            <?php
+            }
+            //Si l'album figure dans la wantlist de l'utilisateur, on affiche un message lui signifiant que l'album figure déjà bien dans sa wantlist
+            else
+            {
+            ?>
+                <div id="already-in-my-wantlist">Album dans ma Wantlist<i class="fa fa-check"></i></div>
+            <?php
+            }
+            ?>
+        <?php
+        }
+        ?>
+    </section>
+    
+    <h3>Titres</h3>
+    <?php
+    //On boucle sur le tableau recordTracks et on affiche le nom et la durée de chacun des morceaux de l'album
+    foreach($recordTracks as $recordTrack) :
+    ?>
+        <p><?= htmlspecialchars($recordTrack['Name']); ?> - <?= htmlspecialchars($recordTrack['Length']); ?></p>
+    <?php
+    endforeach;
+    ?>
+    <!-- On affiche la description de l'album -->
+    <h3>À propos de l'album</h3>
+    
+    <p class="album-description"><?= htmlspecialchars($records['Description']); ?></p>
+    
+</section>
+
+<a id="return-button" href="<?= $requestUrl ?>/records"><i class="fa fa-undo"></i>Retour aux albums</a>

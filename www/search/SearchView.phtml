@@ -1,0 +1,33 @@
+<section id="search-result">
+    
+    <article>
+        <?php 
+            // Si le résultat de la recherche est bien un tableau
+            if(is_array($search) == true)
+            {
+                //On boucle sur le tableau correspondant aux résultat de la recherche et on affiche chaque élément du résultat
+                foreach($search as $searchResult) 
+                {
+                ?>
+                    <a href="<?= $requestUrl ?>/artistsDetail?Id=<?= intval($searchResult['ArtistId']) ?>">
+                        <h3 class="artist-title"><i class="fa fa-music"></i><?= htmlspecialchars($searchResult['ArtistName']); ?></h3>
+                    </a>
+                    <a href="<?= $requestUrl ?>/recordsDetail?Id=<?= intval($searchResult['RecordId']) ?>">
+                        <p><?= htmlspecialchars($searchResult['RecordName']); ?></p>
+                        <img src="<?= $wwwUrl ?>/images/albums/<?= htmlspecialchars($searchResult['RecordPhoto']); ?>"></img>
+                    </a>
+                <?php
+                }
+            }
+            //Si le résultat n'est pas un tableau, alors la recherche n'a pas trouvé de correspondance et on affiche un message de notification
+            else 
+            {
+            ?>
+                <p><?= htmlspecialchars($search); ?></p>
+            <?php
+            }
+            ?>
+    
+    </article>
+    
+</section>

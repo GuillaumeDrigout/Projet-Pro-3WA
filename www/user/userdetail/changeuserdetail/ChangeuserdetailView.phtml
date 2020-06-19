@@ -1,0 +1,49 @@
+<h2 class="change-user-detail-title"><i class="fa fa-pencil"></i>Modifier mes informations personnelles</h2>
+
+<form class="generic-form" action="<?= $requestUrl ?>/user/userDetail/changeUserdetail" method="POST">
+    <ul>
+        <li>
+            <label for="firstname">Prénom</label>
+            <input type="text" name="firstname" value="<?= $userInfo['FirstName'] ?>"/>
+        </li>
+            
+        <li>    
+            <label for="lastname">Nom de famille</label>
+            <input type="text" name="lastname" value="<?= $userInfo['LastName'] ?>"/>
+        </li>    
+            
+        <li>
+            <label for="email">Email</label>
+            <input type="text" name="email" value="<?= $userInfo['Email'] ?>"/>
+        </li>
+            
+        <li>
+            <label for="address">Adresse</label>
+            <input type="text" name="address" value="<?= $userInfo['Address'] ?>"/>
+        </li>
+            
+        <li>
+            <label for="city">Ville</label>
+            <input type="text" name="city" value="<?= $userInfo['City'] ?>"/>
+        </li>
+            
+        <li>
+            <label for="zipCode">Code Postal</label>
+            <input type="text" name="zipCode" value="<?= $userInfo['ZipCode'] ?>"/>
+        </li>
+            
+        <li>
+            <label for="country">Pays</label>
+            <input type="text" name="country"value="<?= $userInfo['Country'] ?>"/>
+        </li>
+            
+        <li>
+            <label for="birthDate">Date de naissance (AAAA-MM-JJ)</label>
+            <input type="text" name="birthDate" value="<?= $userInfo['BirthDate'] ?>"/>
+        </li>
+            
+        <li>
+            <input class="button" type="submit" value="Modifier"/>
+        </li>
+    </ul>
+</form>

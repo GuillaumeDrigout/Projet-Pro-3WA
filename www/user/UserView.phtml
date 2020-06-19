@@ -1,0 +1,93 @@
+<!-- Affichage du template lié à la vue -->
+<h2><i class="fa fa-user"></i> Création d'un compte utilisateur</h2>
+
+
+<form class="generic-form" action="<?= $requestUrl ?>/user" method="POST">
+
+<!-- aside qui s'affichera en cas d'erreur dans le formulaire -->
+<aside class="error-message hidden">
+		<h3><i class="fa fa-warning"></i> Il y a <span id="validation-error-count">1</span> erreur(s) dans le formulaire !</h3>
+		<p><?= $errorMessage ?></p>
+</aside>
+    <ul>
+        <li>
+            <label for="firstName">Prénom</label>
+            <input id="firstName" type="text" data-required data-name="Prénom" name="firstName" value="<?= $_POST['firstName'] ?? '' ?>"/>
+        </li>
+        
+        <li>
+            <label for="lastName">Nom de famille</label>
+            <input id="lastName" type="text" data-required data-name="Nom" name="lastName" value="<?= $_POST['lastName'] ?? '' ?>"/>
+        </li>
+        
+        <li id="birthDate">
+			<label for="birthDay">Date de naissance</label>
+			<select id="birthDay" name="birthDay">
+                <?php 
+                //On boucle les jours du mois donc de 1 à 31
+                for($day = 1; $day <= 31; $day++): 
+                ?>
+					<option value="<?= $day ?>"><?= $day ?></option>
+				<?php endfor; ?>
+			</select>
+			<span> / </span>
+			<select id="birthMonth" name="birthMonth">
+				<option value="1">Janvier</option>
+				<option value="2">Février</option>
+				<option value="3">Mars</option>
+				<option value="4">Avril</option>
+				<option value="5">Mai</option>
+				<option value="6">Juin</option>
+				<option value="7">Juillet</option>
+				<option value="8">Août</option>
+				<option value="9">Septembre</option>
+				<option value="10">Octobre</option>
+				<option value="11">Novembre</option>
+				<option value="12">Décembre</option>
+			</select>
+			<span> / </span>
+			<select id="birthYear" name="birthYear">
+                <?php 
+                //On boucle pour afficher les années depuis 1940 jusqu'à l'année en cours -18 pour contrôler que l'utilisateur est majeur
+                for($year = 1940; $year <= date('Y') - 18; $year++): 
+                ?>
+                        <option value="<?= $year; ?>"><?= $year; ?></option>
+                <?php endfor; ?>
+	        </select>
+		</li>
+		
+		<li>
+            <label class="textarea" for="address">Adresse</label>
+            <textarea id="address" name="address" data-required data-name="Adresse" rows="3"><?= $_POST['address'] ?? '' ?></textarea>
+        </li>
+        
+        <li>
+            <label for="city">Ville</label>
+            <input id="city" type="text" name="city" data-required data-name="Ville" value="<?= $_POST['city'] ?? '' ?>"/>
+        </li>
+        
+        <li>
+            <label for="zipCode">Code postal</label>
+            <input id="zipCode" class="zip-code" type="number" name="zipCode" data-required data-name="Code-postal" value="<?= $_POST['zipCode'] ?? '' ?>"/>
+        </li>
+        
+        <li>
+            <label for="country">Pays</label>
+            <input id="country" class="country" type="text" maxlength="20" name="country" data-required data-name="Pays" value="<?= $_POST['country'] ?? '' ?>"/>
+        </li>
+        
+        <li>
+            <label for="email">Email</label>
+            <input id="email" type="text" data-required data-name="E-mail" name="email" value="<?= $_POST['email'] ?? '' ?>"/>
+        </li>
+        
+        <li>
+            <label for="password">Mot de passe</label>
+            <input id="password" type="password" name="password" data-required data-name="Mot de passe" data-length="8"/>
+        </li>
+        
+        <li>
+            <input class="button" type="submit" value="Enregistrer"/>
+        </li>
+    </ul>
+</form>

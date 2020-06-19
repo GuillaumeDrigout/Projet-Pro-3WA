@@ -1,0 +1,37 @@
+<!-- on calcule la longueur du tableau wantlist dans le titre pour afficher 
+     combien d'albums sont dans la wantlist à l'utilisateur -->
+<h2 id="wantlist-title"><i class="fa fa-heart"></i>Ma Want List - (<?= count($wantlist) ?> Albums)</h2>
+
+<section id="wantlist">
+    
+    <?php
+    //On boucle sur le tableau wantlist et affiche les informations de chaque album de la wantlist
+    foreach($wantlist as $want) :
+    ?>
+    <section class="each-want">
+        
+        <article class="want-illustration">
+            <h3><?= htmlspecialchars($want['ArtistName']); ?> - <?= htmlspecialchars($want['RecordName']); ?></h3>
+            <img src="<?= $wwwUrl ?>/images/albums/<?= htmlspecialchars($want['RecordPhoto']); ?>"></img>
+            <form action="<?= $requestUrl ?>/wantlist" method="POST">
+                <input class="hidden" type="text" name="delete-want" value="<?= intval($want['WantId']); ?>"/>
+                <input class="button-wantlist" type="submit" value="Retirer de ma Wantlist"/>
+            </form>
+        </article>
+
+        <article class="want-preview">
+            <iframe src="<?= htmlspecialchars($want['SpotifyLink']); ?>"
+                width="350" height="450" frameborder="0" allowtransparency="true" allowfullscreen allow="encrypted-media">
+            </iframe>
+        </article>
+    
+    </section>
+    <?php
+    endforeach;
+    ?>
+    
+</section>
+
+<!-- scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js"></script>
+<script type="text/javascript" src="<?= $wwwUrl ?>/js/wantlist.js"></script>

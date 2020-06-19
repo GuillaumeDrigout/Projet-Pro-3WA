@@ -1,0 +1,37 @@
+<!-- Affichage du template lié à la vue -->
+<h2 class="album-title"><i class="fa fa-music"></i>Liste des Albums du catalogue</h2>
+
+<aside id="albums-list-just-name">
+	<?php
+	// On boucle sur le tableau records pour afficher le nom de chacun des albums
+	foreach($records as $record) :
+	?>
+		<a class="each-album-just-name" href="<?= $requestUrl ?>/recordsDetail?Id=<?= intval($record['Id']) ?>">
+			<?= htmlspecialchars($record['Name']); ?> - <?= htmlspecialchars($record['ArtistName']); ?>
+		</a>
+	<?php
+	endforeach;
+	?>
+</aside>
+
+<section id="albums-list">
+	<?php
+	// On boucle sur le tableau records pour afficher les informations de chacun des albums
+	foreach($records as $record) :
+	?>
+    	<a href="<?= $requestUrl ?>/recordsDetail?Id=<?= intval($record['Id']) ?>" title="Voir l'album">
+    	    <article class="each-album">
+        		<h3><?= htmlspecialchars($record['Name']); ?> - <?= htmlspecialchars($record['ArtistName']); ?></h3>
+        		<img src="<?= $wwwUrl ?>/images/albums/<?= htmlspecialchars($record['Photo']); ?>"></img>
+        		<p><?= substr(htmlspecialchars($record['Description']), 0, 100) ?>&nbsp;[...]</p>
+        		<p>Nombre de morceaux : <?= htmlspecialchars($record['NumberOfTracks']); ?></p>
+        		<p>Année de parution : <?= htmlspecialchars($record['Year']); ?></p>
+    		</article>
+    	</a>
+	<?php
+	endforeach;
+	?>
+</section>
+
+<!-- Chargement du script de la page -->
+<script src="<?= $wwwUrl ?>/js/records.js"></script>

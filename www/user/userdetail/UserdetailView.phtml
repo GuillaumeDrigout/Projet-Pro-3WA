@@ -1,0 +1,31 @@
+<!-- Message de notification -->
+<?php if($flashBag->hasMessages() == true): ?>
+    <aside id="notice" class="notice">
+        <?php foreach($flashBag->fetchMessages() as $message): ?>
+            <p><?= $message ?></p>
+        <?php endforeach ?>
+    </aside>
+<?php endif; ?>
+
+<h2 class="userDetail-title"><i class="fa fa-user"></i>Mes informations utilisateur</h2>
+
+<!-- On affiche toutes les données de l'utilisateur présente dans la base de données -->
+<section id="user-info">
+    <ul>
+        <li><?= htmlspecialchars($userInfo['FirstName']); ?></li>
+        <li><?= htmlspecialchars($userInfo['LastName']); ?></li>
+        <li><?= htmlspecialchars($userInfo['Address']); ?></li>
+        <li><?= htmlspecialchars($userInfo['City']); ?></li>
+        <li><?= htmlspecialchars($userInfo['ZipCode']); ?></li>
+        <li><?= htmlspecialchars($userInfo['Country']); ?></li>
+        <li><?= htmlspecialchars($userInfo['BirthDate']); ?></li>
+        <li><?= htmlspecialchars($userInfo['Email']); ?></li>
+        <br>
+        <!-- Boutons vers les pages de modification des infos perso -->
+        <a class="change-info-button" href="<?= $requestUrl ?>/user/userDetail/changeUserdetail">Modifier mes informations personelles</a>
+        <a class="change-info-button" href="<?= $requestUrl ?>/user/userDetail/changeUserpassword">Modifier mon mot de passe</a>
+        <br>
+        <h3>Compte crée le:</h3>
+        <li><?= htmlspecialchars($userInfo['CreationTimestamp']); ?></li>
+    </ul>
+</section>
