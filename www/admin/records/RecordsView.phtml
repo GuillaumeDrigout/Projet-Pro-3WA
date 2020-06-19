@@ -1,0 +1,107 @@
+<!-- S'il y des message de notifications de types flashBags, on les affiche dans un aside #notice -->
+<?php if($flashBag->hasMessages() == true): ?>
+    <aside id="notice" class="notice">
+        <?php foreach($flashBag->fetchMessages() as $message): ?>
+            <p><?= $message ?></p>
+        <?php endforeach ?>
+    </aside>
+<?php endif; ?>   
+        
+<!-- Affichage du template lié à la vue -->
+<h2><i class="fa fa-plus-circle"></i> Ajout/retrait d'un album au catalogue</h2>
+
+<form class="generic-form" action="<?= $requestUrl ?>/admin/records" method="POST" enctype="multipart/form-data">
+
+    <fieldset>
+        <legend><i class="fa fa-check"></i> Ajout d'un album</legend>
+        <ul>
+            
+            <li>
+                <label for="artist">Choix de l'artiste</label>
+                <select id="artist" name="artist">
+                    <?php foreach($artists as $artist): ?>
+                        <option value="<?= $artist['Id'] ?>"><?= htmlspecialchars($artist['Name']); ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </li>
+            
+            <li>
+                <label for="name">Nom</label>
+                <input id="name" type="text" name="name" data-required data-name="Nom">
+            </li>
+            
+            <li>
+                <label for="photo">Photo</label>
+                <input id="photo" name="photo" type="file">
+            </li>
+            
+            <li id="photo-warning"><i class="fa fa-warning"></i> Merci de renommer le fichier de la photo avec le nom de l'album <strong>avant</strong> de l'envoyer</li>
+            
+            <li>
+                <label class="textarea" for="description">Description</label>
+                <textarea id="description" name="description" data-required data-name="description" rows="5"></textarea>
+            </li>
+            
+            <li>
+                <label for="year">Année</label>
+                <input id="year" type="text" name="year" data-required data-name="Année">
+            </li>
+            
+            <li>
+                <label for="numberOfTracks">Nombre de chansons</label>
+                <input id="numberOfTracks" type="text" name="numberOfTracks" data-required data-name="nombre-de-chansons">
+            </li>
+            
+            <li>
+                <label for="spotifyLink">Lien Spotify</label>
+                <input id="spotifyLink" type="text" name="spotifyLink" data-required data-name="lien-spotify">
+            </li>
+            
+            <li>
+                <label for="genre">Choix du genre</label>
+                <select id="genre" name="genre">
+                    <?php foreach($genres as $genre): ?>
+                        <option value="<?= $genre['Id'] ?>"><?= htmlspecialchars($genre['Name']); ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </li>
+            
+        </ul>
+    </fieldset>
+
+    <ul>
+        <li>
+            <input class="button" type="submit" value="Ajouter">
+            <a class="button" href="<?= $requestUrl ?>/admin/records">Annuler</a>
+        </li>
+    </ul>
+</form>
+<form data-no-validation="true" class="generic-form" action="<?= $requestUrl ?>/admin/records" method="POST" enctype="multipart/form-data">
+    <fieldset>
+        <legend><i class="fa fa-trash"></i> Retrait d'album(s)</legend>
+        <table class="generic-table">
+            <tbody>
+                <?php
+                //On boucle sur le tableau records et affiche le nom de chacun
+                foreach($records as $record): 
+                ?>
+                    <tr>
+                        <td>
+                            <strong><?= htmlspecialchars($record['Name']); ?></strong>
+                        </td>
+                        <td>
+                            <input type="checkbox" name="selected[]" value="<?= $record['Id']; ?>">
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </fieldset>
+        
+        <ul>
+            <li>
+                <input class="button" type="submit" value="Supprimer">
+                <a class="button" href="<?= $requestUrl ?>/admin/records">Annuler</a>
+            </li>
+        </ul>
+</form>

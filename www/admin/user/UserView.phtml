@@ -1,0 +1,36 @@
+<h2><i class="fa fa-user"></i> Gestion des administrateurs</h2>
+
+<form class="generic-form" action="<?= $requestUrl ?>/admin/user" method="POST">
+	<table class="generic-table">
+	   <thead>
+			<tr>
+				<th>Nom</th>
+				<th>Prénom</th>				
+				<th>Admin</th>
+			</tr>
+		</thead>
+		<tbody>
+		    <?php foreach($users as $user): ?>
+			<tr>
+				<td><?= htmlspecialchars($user['LastName']);?></td>
+				<td><?= htmlspecialchars($user['FirstName']);?></td>
+				<td>
+				    <?php
+				    $checked='';
+				    if ($user['Admin']==1) {
+				        $checked = ' checked';
+				    }
+				    ?>
+				    <input type="checkbox" name="selected[]" value="<?= $user['Id']; ?>"<?= $checked;?>>
+				</td>
+			</tr>
+			<?php endforeach; ?>
+		</tbody>
+	</table>
+    <ul>
+        <li>
+            <input class="button" type="submit" value="Valider">
+            <a class="button" href="<?= $requestUrl ?>/admin">Annuler</a>
+        </li>
+    </ul>
+</form>

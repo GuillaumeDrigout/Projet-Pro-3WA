@@ -1,0 +1,73 @@
+<!-- S'il y des message de notifications de types flashBags, on les affiche dans un aside #notice -->
+<?php if($flashBag->hasMessages() == true): ?>
+    <aside id="notice" class="notice">
+        <?php foreach($flashBag->fetchMessages() as $message): ?>
+            <p><?= $message ?></p>
+        <?php endforeach ?>
+    </aside>
+<?php endif; ?>        
+        
+        <!-- Affichage du template lié à la vue -->
+        <h2><i class="fa fa-plus-circle"></i> Ajout/retrait d'un artiste au catalogue</h2>
+
+<form class="generic-form" action="<?= $requestUrl ?>/admin/artists" method="POST" enctype="multipart/form-data">
+
+    <fieldset>
+        <legend><i class="fa fa-check"></i> Ajout d'un artiste</legend>
+        <ul>
+            <li>
+                <label for="name">Nom</label>
+                <input id="name" type="text" name="name" data-required data-name="Nom">
+            </li>
+            
+            <li>
+                <label for="photo">Photo</label>
+                <input id="photo" name="photo" type="file">
+            </li>
+            
+            <li id="photo-warning"><i class="fa fa-warning"></i> Merci de renommer le fichier de la photo avec le nom de l'artiste <strong>avant</strong> de l'envoyer</li>
+            
+            <li>
+                <label class="textarea" for="bio">Biographie</label>
+                <textarea id="bio" name="bio" data-required data-name="Biographie" rows="5"></textarea>
+            </li>
+            
+        </ul>
+    </fieldset>
+
+    <ul>
+        <li>
+            <input class="button" type="submit" value="Ajouter">
+            <a class="button" href="<?= $requestUrl ?>/admin/artists">Annuler</a>
+        </li>
+    </ul>
+</form>
+<form data-no-validation="true" class="generic-form" action="<?= $requestUrl ?>/admin/artists" method="POST" enctype="multipart/form-data">
+    <fieldset>
+        <legend><i class="fa fa-trash"></i> Retrait d'artiste(s)</legend>
+        <table class="generic-table">
+            <tbody>
+                <?php 
+                //On boucle sur le tableau artists et affiche les infos de chacun
+                foreach($artists as $artist): 
+                ?>
+                    <tr>
+                        <td>
+                            <strong><?= htmlspecialchars($artist['Name']); ?></strong>
+                        </td>
+                        <td>
+                            <input type="checkbox" name="selected[]" value="<?= $artist['Id']; ?>">
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </fieldset>
+        
+        <ul>
+            <li>
+                <input class="button" type="submit" value="Supprimer">
+                <a class="button" href="<?= $requestUrl ?>/admin/artists">Annuler</a>
+            </li>
+        </ul>
+</form>

@@ -1,0 +1,102 @@
+<!-- Affichage du template lié à la vue -->
+<h2><i class="fa fa-plus-circle"></i> Ajout/retrait de chansons aux albums du catalogue</h2>
+
+<form data-no-validation="true" id="tracks-form" class="generic-form" action="<?= $requestUrl ?>/admin/tracks" method="POST" enctype="multipart/form-data">
+
+    <fieldset>
+        <legend><i class="fa fa-check"></i> Ajout d'une chanson à un album</legend>
+        <?php
+        //s'il y a un message de succès ou d'échec d'envoi du formulaire, on l'affiche
+        if(isset($message))
+        {
+            echo $message;
+        }
+        ?>
+        <ul>
+            
+            <li>
+                <label for="record">Choix de l'album</label>
+                <select id="record" name="record">
+                    <?php
+                    //On boucle sur le tableau records pour afficher chacun dans le select
+                    foreach($records as $record): 
+                    ?>
+                        <option data-length="<?= $record['NumberOfTracks'] ?>" value="<?= htmlspecialchars($record['Id']); ?>"><?= htmlspecialchars($record['Name']); ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </li>
+               
+                <div id="nbreinput">
+                    <!-- l'input caché permet de récupérer le nombre de morceaux que contient l'album selectioné plus haut -->
+                    <input type="hidden" name="NumberOfTracks" id="nbreoftracks" value="<?=$record['NumberOfTracks']?>"/>
+            <?php
+                $i;
+                //On boucle pour que les inputs du formulaire se répètent autant de fois qu'il y a 
+                // de morceaux sur le premier album de la liste déroulante se trouvant plus haut
+                for($i = 1 ; $i <= $record['NumberOfTracks'] ; $i++)
+                {
+            ?>
+            
+                <li>
+                    <label for="name">Nom de la piste</label>
+                    <input id="name<?=$i?>" type="text" placeholder="format: n°piste. nom piste" name="name<?=$i?>" data-required data-name="nom">
+                </li>
+                
+                <li>
+                    <label for="spotifySongLink">Lien Spotify</label>
+                    <input id="spotifySongLink<?=$i?>" type="text" name="spotifySongLink<?=$i?>" data-required data-name="lien-spotify-chanson">
+                </li>
+                
+                <li>
+                    <label for="length">Durée de la chanson</label>
+                    <input id="length<?=$i?>" type="text" placeholder="format: hh:mm:ss" name="length<?=$i?>" data-required data-name="durée-chanson">
+                </li>
+                
+                <br>
+            
+            <?php 
+            }
+            ?>
+            </div>
+        </ul>
+    </fieldset>
+
+    <ul>
+        <li>
+            <input id="validate-tracks" class="button" type="submit" value="Ajouter">
+            <a class="button button-cancel" href="<?= $requestUrl ?>/admin/records">Annuler</a>
+        </li>
+    </ul>
+</form>
+<form data-no-validation="true" class="generic-form" action="<?= $requestUrl ?>/admin/tracks" method="POST" enctype="multipart/form-data">
+    <fieldset>
+        <legend><i class="fa fa-trash"></i> Retrait de chanson(s)</legend>
+        <table class="generic-table">
+            <tbody>
+                <?php
+                // On boucle sur le tableau tracks afin d'afficher les infos de chaque morceau
+                foreach($tracks as $track): 
+                ?>
+                    <tr>
+                        <td>
+                            <strong><?= htmlspecialchars($track['TrackName']); ?> - <?= htmlspecialchars($track['RecordName']); ?></strong>
+                        </td>
+                        <td>
+                            <input type="checkbox" name="selected[]" value="<?= $track['TrackId']; ?>">
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </fieldset>
+        
+        <ul>
+            <li>
+                <input class="button" type="submit" value="Supprimer">
+                <a class="button button-cancel" href="<?= $requestUrl ?>/admin/tracks">Annuler</a>
+            </li>
+        </ul>
+</form>
+
+<!-- Chargement du script de la page -->
+<script src="<?= $wwwUrl ?>/js/tracks.js"></script>

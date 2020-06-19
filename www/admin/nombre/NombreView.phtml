@@ -1,0 +1,28 @@
+  <input type="hidden" name="NumberOfTracks" id="nbreoftracks" value="<?=$record['NumberOfTracks']?>"/>
+ <?php
+                $i;
+                //on boucle pour afficher le nombre d'inputs nécessaire, qui correspondent au nombre de morceaux de l'album sélectionné
+                for($i = 1 ; $i <= $record['NumberOfTracks'] ; $i++)
+                {
+            ?>
+            
+                <li>
+                    <label for="name">Nom de la piste</label>
+                    <input id="name<?=$i?>" type="text" placeholder="<?= $i ?>. nom piste" name="name<?=$i?>" data-required data-name="nom">
+                </li>
+                
+                <li>
+                    <label for="spotifySongLink">Lien Spotify</label>
+                    <input id="spotifySongLink<?=$i?>" type="text" name="spotifySongLink<?=$i?>" data-required data-name="lien-spotify-chanson">
+                </li>
+                
+                <li>
+                    <label for="length">Durée de la chanson</label>
+                    <input id="length<?=$i?>" type="text" placeholder="format: hh:mm:ss" name="length<?=$i?>" data-required data-name="durée-chanson">
+                </li>
+                
+                <br>
+            
+            <?php 
+            }
+            ?>

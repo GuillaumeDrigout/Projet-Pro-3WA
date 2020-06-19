@@ -1,0 +1,52 @@
+<!-- Affichage du template lié à la vue -->
+<h2><i class="fa fa-plus-circle"></i> Ajout/retrait d'un genre au catalogue</h2>
+
+<form class="generic-form" action="<?= $requestUrl ?>/admin/genres" method="POST" enctype="multipart/form-data">
+    
+    <fieldset>
+        <legend><i class="fa fa-check"></i> Ajout d'un genre</legend>
+            <ul>
+                <li>
+                    <label for="name">Nom</label>
+                    <input id="name" type="text" name="name" data-required data-name="Nom">
+                </li>
+            </ul>
+    </fieldset>
+    
+    <ul>
+        <li>
+            <input class="button" type="submit" value="Ajouter">
+            <a class="button" href="<?= $requestUrl ?>/admin/artists">Annuler</a>
+        </li>
+    </ul>
+</form>
+
+<form data-no-validation="true" class="generic-form" action="<?= $requestUrl ?>/admin/genres" method="POST" enctype="multipart/form-data">
+    <fieldset>
+        <legend><i class="fa fa-trash"></i> Retrait d'un/plusieurs genre(s)</legend>
+        <table class="generic-table">
+            <tbody>
+                <?php 
+                //On boucle sur le tableau genres et on affiche les noms de chacun
+                foreach($genres as $genre): 
+                ?>
+                    <tr>
+                        <td>
+                            <strong><?= htmlspecialchars($genre['Name']); ?></strong>
+                        </td>
+                        <td>
+                            <input type="checkbox" name="selected[]" value="<?= $genre['Id']; ?>">
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </fieldset>
+        
+        <ul>
+            <li>
+                <input class="button" type="submit" value="Supprimer">
+                <a class="button" href="<?= $requestUrl ?>/admin/genres">Annuler</a>
+            </li>
+        </ul>
+</form>
